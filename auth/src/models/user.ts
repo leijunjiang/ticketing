@@ -40,7 +40,7 @@ interface UserDoc extends mongoose.Document {
 userSchema.pre('save', async function(done) {
   if (this.isModified('password')) {
     const hashed = await Password.toHash(this.get('password'));
-    this.set('passwored', hashed);
+    this.set('password', hashed);
   }
   done();
 });
