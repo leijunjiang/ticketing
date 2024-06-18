@@ -20,7 +20,7 @@ router.post('/api/users/signin',
       .withMessage('You must supply a password')
   ],
   validateRequest,
-  async (req: Request, res: Response) => { 
+  async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
@@ -40,7 +40,7 @@ router.post('/api/users/signin',
       {
         id: existingUser.id,
         email: existingUser.email
-      }, 
+      },
       process.env.JWT_KEY!
     );
 
