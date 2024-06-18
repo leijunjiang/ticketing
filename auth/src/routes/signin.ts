@@ -24,21 +24,17 @@ router.post('/api/users/signin',
     const { email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
-    console.log(`existingUser = ${existingUser}`)
     if (!existingUser) {
       throw new BadRequestError('Invalide credential');
     }
-    console.log('after exiting user')
     const passwordsMatch = await Password.compare(
       existingUser.password,
       password
     );
 
-    console.log('after passwordsmatch')
     if (!passwordsMatch) {
       throw new BadRequestError('Invalid Credential');
     }
-    console.log('before user jwt')
     // generate JWT
     const userJwt = jwt.sign(
       {
@@ -52,7 +48,6 @@ router.post('/api/users/signin',
     req.session = {
       jwt: userJwt
     }
-    console.log('after user jwt')
     res.status(200).send(existingUser);
   }
 );
