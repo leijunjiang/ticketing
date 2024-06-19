@@ -1,5 +1,5 @@
 export declare global {
   declare module globalThis {
-    var signin: () =>  Promise<string[] | undefined>;
+    var signin: () =>  Promise<string>;
   }
 }
