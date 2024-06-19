@@ -3,13 +3,13 @@ import mongoose from 'mongoose';
 import request from 'supertest';
 import { app } from '../app'
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      signin: () => Promise<string[]>;
-    }
-  }
-}
+// declare global {
+//   namespace NodeJS {
+//     interface Global {
+//       signin: () => Promise<string[]>;
+//     }
+//   }
+// }
 
 
 
