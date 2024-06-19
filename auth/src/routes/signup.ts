@@ -35,7 +35,6 @@ router.post('/api/users/signup', [
 
     // generate JWT
 
-    console.log(`process.env.JWT_KEY = ${process.env.JWT_KEY}`)
     const userJwt = jwt.sign(
       {
         id: user.id,
