@@ -7,7 +7,7 @@ const signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { doRequest, errors } = useRequest({
-      url: '/api/users/signup',
+      url: '/api/users/signin',
       method: 'post',
       body: {
         email, password
@@ -17,13 +17,13 @@ const signup = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    
+
     doRequest()
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <h1>Sign up</h1>
+      <h1>Sign In</h1>
       <div className="form-group">
         <label>Email Address</label>
         <input
@@ -42,7 +42,7 @@ const signup = () => {
         />
       </div>
       {errors}
-      <button className="btn btn-primary">sign Up</button>
+      <button className="btn btn-primary">sign In</button>
     </form>
   );
 };
